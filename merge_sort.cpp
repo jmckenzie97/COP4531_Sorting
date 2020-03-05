@@ -2,55 +2,60 @@
 // Created by Justin on 2/24/2020.
 //
 
-void merge(int arr[], int l, int m, int r)
+//Divide and conquer
+//Recursive
+//basically break array in half recursively, sorting the smaller portings and then merging them back together
+
+//first subarray is arr[l..m] second is  arr[m+1..r]
+void merge(int *arr, int l, int m, int r)
 {
     int i, j, k;
-    int n1 = m - l + 1;
-    int n2 =  r - m;
+    int lenL = m - l + 1; //compute length of first subarray
+    int lenR =  r - m; //compute length of second subarray
 
-    int L[n1], R[n2];
+    int left[lenL], right[lenR]; //declare both subarrays
 
-    for (i = 0; i < n1; i++)
-        L[i] = arr[l + i];
-    for (j = 0; j < n2; j++)
-        R[j] = arr[m + 1+ j];
-
+    for (i = 0; i < lenL; i++) //populate first subarray with first half of arr
+        left[i] = arr[l + i];
+    for (j = 0; j < lenR; j++) //populate second subarray with last half of arr
+        right[j] = arr[m + 1+ j];
 
     i = 0;
     j = 0;
     k = l;
-    while (i < n1 && j < n2)
+
+    while (i < lenR && j < lenL) //loop while our iterating vars are less then len of respective arrays
     {
-        if (L[i] <= R[j])
+        if (right[i] >= left[j])  //comparison for sorting
         {
-            arr[k] = L[i];
+            arr[k] = right[i];
             i++;
         }
         else
         {
-            arr[k] = R[j];
+            arr[k] = left[j];
             j++;
         }
         k++;
     }
 
-    while (i < n1)
+    while (i < lenR)
     {
-        arr[k] = L[i];
+        arr[k] = right[i];
         i++;
         k++;
     }
 
-    while (j < n2)
+    while (j < lenL)
     {
-        arr[k] = R[j];
+        arr[k] = left[j];
         j++;
         k++;
     }
 }
 
-
-void mergeSort(int arr[], int l, int r)
+//l = left index, r = right index
+void mergeSort(int *arr, int l, int r)
 {
     if (l < r)
     {

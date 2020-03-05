@@ -12,11 +12,12 @@ int main() {
     int arr[] = {5, 10, 25, 2, 4, 1, 45, 10000005};
     int len = 8;
     cout << "sorted = ";
-
-    int *sorted = insertion_sort(arr, len);
+    quickSort(arr, 0 , len-1);
+//    mergeSort(arr, 0 , len-1);
+//    insertion_sort(arr, len);
     for(int i = 0; i < len; i++){
         //cout << i;
-        cout << *(sorted + i) << endl;
+        cout << *(arr + i) << endl;
 
     }
 

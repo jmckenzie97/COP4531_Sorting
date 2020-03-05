@@ -2,7 +2,9 @@
 // Created by Justin on 2/24/2020.
 //
 
-int * insertion_sort(int *arr, int len){
+//for arr of size n, loop from i = 1 to n-1
+
+void insertion_sort(int *arr, int len){
     int i, curr, j;
     for (i = 1; i < len; i++)
     {
@@ -16,5 +18,5 @@ int * insertion_sort(int *arr, int len){
         }
         arr[j + 1] = curr;
     }
-    return arr;
+    //return arr;
 }
