@@ -2,14 +2,11 @@
 // Created by Justin on 2/24/2020.
 //
 
-
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 void quickSort(int *arr,int,int);
-
 int partition(int *arr, int,int);
 
 void quickSort(int *arr, int l, int r)

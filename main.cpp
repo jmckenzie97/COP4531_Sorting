@@ -9,13 +9,16 @@
 
 using namespace std;
 int main() {
-    int arr[] = {5, 10, 25, 2, 4, 1, 45, 10000005};
+    int arr[] = {5, 10, 25, 2, 4, 1, 45, 1005};
     int len = 8;
+    int sorted[len+1];
     cout << "sorted = ";
-    quickSort(arr, 0 , len-1);
+    radixsort(arr, len);
+//    heapSort(arr, len);
+//    quickSort(arr, 0 , len-1);
 //    mergeSort(arr, 0 , len-1);
 //    insertion_sort(arr, len);
-    for(int i = 0; i < len; i++){
+    for(int i = 0; i < len+1; i++){
         //cout << i;
         cout << *(arr + i) << endl;
 
