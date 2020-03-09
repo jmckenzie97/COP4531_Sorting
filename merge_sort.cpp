@@ -13,7 +13,8 @@ void merge(int *arr, int l, int m, int r)
     int lenL = m - l + 1; //compute length of first subarray
     int lenR =  r - m; //compute length of second subarray
 
-    int left[lenL], right[lenR]; //declare both subarrays
+    int *left = new int[lenL];
+    int *right = new int[lenR];
 
     for (i = 0; i < lenL; i++) //populate first subarray with first half of arr
         left[i] = arr[l + i];
@@ -52,6 +53,8 @@ void merge(int *arr, int l, int m, int r)
         j++;
         k++;
     }
+    free(left);
+    free(right);
 }
 
 //l = left index, r = right index

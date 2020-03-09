@@ -9,7 +9,8 @@ using namespace std;
 //streamlined version of count sort to work with radix sort
 void countSortRadix(int *arr, int n, int exp)
 {
-    int output[n]; // output array
+
+    int * output = new int [n];
     int i, count[10] = {0};
 
     for (i = 0; i < n; i++)
@@ -26,6 +27,8 @@ void countSortRadix(int *arr, int n, int exp)
 
     for (i = 0; i < n; i++)
         arr[i] = output[i];
+
+    free(output);
 }
 
 void radixsort(int *arr, int n)

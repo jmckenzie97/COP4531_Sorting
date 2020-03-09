@@ -17,9 +17,9 @@ int getMax(int *arr, int n)
 void Counting_Sort(int *arr, int len)
 {
     int max = getMax(arr, len);
-    int output[len];
+    int *output = new int[len];
 
-    int C[max+1];
+    int *C = new int[max+1];
     for(int i = 0; i < max + 1; i++)
     {
         C[i] = 0;
@@ -40,5 +40,7 @@ void Counting_Sort(int *arr, int len)
 
     for (int i = 0; i < len; i++)
         arr[i] = output[i];
+
+    free(output);
 }
 
