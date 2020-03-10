@@ -9,7 +9,9 @@
 //first subarray is arr[l..m] second is  arr[m+1..r]
 void merge(int *arr, int l, int m, int r)
 {
-    int i, j, k;
+    int i = 0;
+    int j = 0;
+    int k = l;
     int lenL = m - l + 1; //compute length of first subarray
     int lenR =  r - m; //compute length of second subarray
 
@@ -21,9 +23,7 @@ void merge(int *arr, int l, int m, int r)
     for (j = 0; j < lenR; j++) //populate second subarray with last half of arr
         right[j] = arr[m + 1+ j];
 
-    i = 0;
-    j = 0;
-    k = l;
+
 
     while (i < lenR && j < lenL) //loop while our iterating vars are less then len of respective arrays
     {
